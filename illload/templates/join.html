@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <title>ill.fi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <style>
+    body {
+      color: #e2e2e2;
+      font-family: sans-serif;
+    }
+
+    h3 {
+      color: #FCFCFC;
+    }
+
+    b {
+      color: #FF3333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <p style="margin-left: 50px; margin-top: 7vh; color: #fcfcfc;">ill.fi</p>
+    </br>
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %}
+      <div style="margin-left: 50px;"class="notif">{{ messages[0] }}</div>
+      <br/>
+      {% endif %}
+      {% endwith %}
+      <div class="row">
+        <form style="margin-left: 50px;" id="joinForm" action='join' method='POST'>
+          <div>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='inviteField' name="invite"
+              type="text" placeholder="Invite Key"></input>
+            <br/>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='emailField' name="email"
+              type="text" placeholder="Email"></input>
+            <br/>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='usernameField' name="username"
+              type="text" placeholder="Username"></input>
+            <br/>
+            <input class="ill-input" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" id='passwordField' name="password"
+              type="password" placeholder="Password"></input>
+            <br/>
+            <a style="cursor:pointer;margin-left:3px;" type='submit' onclick='console.log("yagmi"); document.getElementById("joinForm").submit();' value='join' name='submit'>Join</a>
+          </div>
+        </form>
+        <div class="col-md-4"></div>
+      </div>
+      <a href="/" style="position: absolute; bottom: 2vh; left: 2vh;">back</a>
+    </div>
+  </body>
+</html>
